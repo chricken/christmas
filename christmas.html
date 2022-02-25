@@ -16,27 +16,15 @@
         'use strict';
         // Its Christmas
         const h = 20;
-        [...new Array(h)].map((el, i) =>
-            'x'.repeat(h - i).split('').map(() => '&nbsp;')
-        ).map((el, i) => {
-
-                el = [...el, ...new Array(i * 2 + 1)].map(() => {
-                    let a = Math.random() < .05 ? 'O' : ((Math.random() < .1) ? '*' : '-')
-                    console.log(a);
-                    return a
-                })
-
-                console.log(el);
-                return el;
-            }
-            /*
-            for (var j = -i; j <= i; j++) {
-                el.push(Math.random() < .05 ? 'O' :
-                    ((Math.random() < .1) ? '*' : '-'))
-            }
-            return el;
-            */
+        const rnd = Math.random;
+        [...new Array(h)].map((el, i) => {
+            return [...new Array(i * 2 + 1)].map(
+                () => rnd() < .1 ? 'o' : ((rnd() < .1) ? '*' : '-')
+            )
+        }).map((el, i) =>
+            [...'x'.repeat(h - i).split('').map(() => '&nbsp;'), ...el]
         ).forEach(el => document.write(el.join('') + '<br />'))
+
     </script>
 </head>
 
