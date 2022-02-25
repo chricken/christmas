@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Titel</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+
+    <script>
+        'use strict';
+        // Its Christmas
+        const h = 20;
+        [...new Array(h)].map((el, i) =>
+            'x'.repeat(h - i).split('').map(() => '&nbsp;')
+        ).map((el, i) => {
+
+                el = [...el, ...new Array(i * 2 + 1)].map(() => {
+                    let a = Math.random() < .05 ? 'O' : ((Math.random() < .1) ? '*' : '-')
+                    console.log(a);
+                    return a
+                })
+
+                console.log(el);
+                return el;
+            }
+            /*
+            for (var j = -i; j <= i; j++) {
+                el.push(Math.random() < .05 ? 'O' :
+                    ((Math.random() < .1) ? '*' : '-'))
+            }
+            return el;
+            */
+        ).forEach(el => document.write(el.join('') + '<br />'))
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
